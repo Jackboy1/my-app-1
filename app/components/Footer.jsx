@@ -8,10 +8,10 @@ const Footer = () => {
 	  <div className="w-4/5">
 		<Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
 		<p className="mt-6 text-sm">
-		  Lorem Ipsum is simply dummy text of the printing and typesetting
-		  industry. Lorem Ipsum has been the industry's standard dummy text
-		  ever since the 1500s, when an unknown printer took a galley of type
-		  and scrambled it to make a type specimen book.
+		  QuickCart is a modern e-commerce platform for quick shopping. We offer a wide range of products at competitive prices, ensuring a seamless shopping experience. 
+			Our user-friendly interface and secure payment options make it easy to find and purchase the items you love. 
+			Whether you're looking for electronics, fashion, or home goods, QuickCart has you covered. 
+			Enjoy fast shipping and excellent customer service with every order. Shop smart, shop quick!
 		</p>
 	  </div>
 	  <div className="w-1/2 flex items-center justify-center">

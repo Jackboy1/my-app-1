@@ -7,6 +7,7 @@ import Banner from './components/Banner'
 import NewsLetter from './components/NewsLetter'
 import FeaturedProducts from './components/FeaturedProducts'
 import PopularProducts from './components/PopularProducts'
+import Loading from './components/Loading'
 
 
 
@@ -15,6 +16,7 @@ const Home = () => {
     <div>
       <NavBar />
       <Slider />
+      <Loading />
       <FeaturedProducts />
       <PopularProducts />
       <Banner />

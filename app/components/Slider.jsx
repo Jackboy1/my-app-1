@@ -12,7 +12,7 @@ const Slider = () => {
       offer: "13% OFF on PS5 Accessories",
       primaryBtn: "Buy Now",
       secondaryBtn: "More Info",
-      image: assets.,
+      image: assets.header_macbook_image,
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const Slider = () => {
       offer: "Special Bundle Deals Available",
       primaryBtn: "Shop Now",
       secondaryBtn: "Learn More",
-      image: ,
+      image: assets.header_playstation_image,
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Slider = () => {
       offer: "Pulse Elite Headset Out Now",
       primaryBtn: "Order Now",
       secondaryBtn: "Specs",
-      image: ,
+      image: assets.header_headphone_image,
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const Slider = () => {
       offer: "Great console covers available",
       primaryBtn: "View Colors",
       secondaryBtn: "Explore",
-      image: ,
+      image: assets.header_macbook_image,
     },
     {
       id: 5,
@@ -44,7 +44,7 @@ const Slider = () => {
       offer: "Limited Edition Covers",
       primaryBtn: "Order Now",
       secondaryBtn: "Details",
-      image: ,
+      image: assets.header_playstation_image,
     },
   ];
 
@@ -96,7 +96,7 @@ const Slider = () => {
                 alt={`Slide ${index + 1}`}
                 height={400}
                 width={600}
-                className="rounded object-contain"
+                className="rounded object-contain w-[150px] "
               />
             </div>
           </div>
