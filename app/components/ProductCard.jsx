@@ -5,7 +5,7 @@ import { assets } from '../../assets/assets';
 import { useAppContext } from '../context/AppContext';
 
 const ProductCard = ({ product }) => {
-  const { currency, router, addToCart } = useAppContext();
+  const { currency, router } = useAppContext();
 
   return (
     <div onClick={() => router.push(`/product/${product._id}`, { scroll: true })}>
