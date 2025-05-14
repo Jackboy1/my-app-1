@@ -5,8 +5,10 @@ const layout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <SideBar />
-      {children}
+      <div className='flex w-full'>
+        <SideBar />
+        {children}
+      </div>
     </div>
   )
 }
