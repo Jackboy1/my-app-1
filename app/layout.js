@@ -2,6 +2,9 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import { AppContextProvider } from "./context/AppContext";
 import { Toaster } from "react-hot-toast";
+import {
+  ClerkProvider,
+} from '@clerk/nextjs'
 
 const outfit = Outfit({
   weights: ["300", "400", "500", "600", "700"],
@@ -20,15 +23,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <AppContextProvider>
-      <Toaster />
-      <html lang="en" className={` ${outfit.className}`}>
-        <body
-          className={`${outfit.className} antialiased`}
-        >
-          {children}
-        </body>
-      </html>
-    </AppContextProvider>
+    <ClerkProvider>
+      <AppContextProvider>
+        <Toaster />
+        <html lang="en" className={` ${outfit.className}`}>
+          <body
+            className={`${outfit.className} antialiased`}
+          >
+            {children}
+          </body>
+        </html>
+      </AppContextProvider>
+    </ClerkProvider>
   );
 }

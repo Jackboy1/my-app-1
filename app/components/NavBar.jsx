@@ -4,10 +4,13 @@ import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdPersonOutline } from "react-icons/md";
 import { useAppContext } from "../context/AppContext";
+import { UserButton, useClerk, useUser } from "@clerk/nextjs";
+import { BagIcon, CartIcon } from "@/assets/assets";
 
 const Navbar = () => {
-  const isSeller = true;
-	const { router } = useAppContext()
+	const { router, isSeller, user } = useAppContext()
+	const { openSignIn, signOut } = useClerk();
+	const { isSignedIn } = useUser();
   return (
 	<div className="flex items-center justify-between px-6 md:px-16 lg:px-32 py-3 border-b border-gray-200 text-gray-900">
 	  <h1 onClick={() => router.push('/')} className="text-2xl font-medium">
@@ -30,14 +33,38 @@ const Navbar = () => {
 		  <button className="text-xs border px-4 py-2.5 rounded">
 			Seller Dashboard
 		  </button>
+
 		)}
+
+		<UserButton />
 	  </div>
+
 	  <div className="flex items-center gap-4">
 		<IoSearchOutline />
-		<button className="flex items-center gap-2 hover:text-gray-900 transition">
-		  <MdPersonOutline />
-		  Account
-		</button>
+		{user ? (
+			<>
+				<UserButton >
+				<UserButton.MenuItems>
+					<UserButton.Action 
+						label="Cart"
+						labelIcon={<CartIcon />}
+						onClick={() => router.push('/cart')} />
+				</UserButton.MenuItems>
+				<UserButton.MenuItems>
+					<UserButton.Action
+						label="My Orders"
+						labelIcon={<BagIcon />}
+						onClick={() => router.push('/my-orders')}
+					/>
+				</UserButton.MenuItems>
+				</UserButton>
+			</>
+		) : (
+			<button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
+			  <MdPersonOutline />
+			  Account
+			</button>
+		)}
 	  </div>
 	</div>
   );
