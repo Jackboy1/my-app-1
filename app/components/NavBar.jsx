@@ -35,8 +35,6 @@ const Navbar = () => {
 		  </button>
 
 		)}
-
-		<UserButton />
 	  </div>
 
 	  <div className="flex items-center gap-4">
@@ -62,7 +60,7 @@ const Navbar = () => {
 		) : (
 			<button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
 			  <MdPersonOutline />
-			  Account
+			  Login
 			</button>
 		)}
 	  </div>
