@@ -6,7 +6,7 @@
 // In the / src / inngest directory create an Inngest client:
 
 import { Inngest } from "inngest";
-import { User } from "@/app/models/User"; // Import User model
+import { User } from "../models/User"; // Import User model
 import dbConnect from "./bd";
 
 // Create a client to send and receive events
