@@ -6,6 +6,8 @@
 // In the / src / inngest directory create an Inngest client:
 
 import { Inngest } from "inngest";
+import User from "../models/userModel";
+import dbConnect from "./bd";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "my-app" });
@@ -22,7 +24,7 @@ export const syncUserCreation = inngest.createFunction({
       name: `${first_name} ${last_name}`,
       imageUrl: image_url,
     };
-    await connectDB();
+    await dbConnect();
     await User.create(userData)
   }
 )
@@ -39,7 +41,7 @@ export const syncUserUpdate = inngest.createFunction({
       name: `${first_name} ${last_name}`,
       imageUrl: image_url,
     };
-    await connectDB();
+    await dbConnect();
     await User.findByIdAndUpdate(id, userData)
   }
 )
@@ -50,7 +52,7 @@ export const syncUserDelete = inngest.createFunction({
   { event: "clerk/user.deleted" },
   async ({ event }) => {
     const { id } = event.data;
-    await connectDB();
+    await dbConnect();
     await User.findByIdAndDelete(id)
   }
 )
