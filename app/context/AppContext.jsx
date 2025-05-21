@@ -3,6 +3,9 @@ import { useAuth, useUser } from "@clerk/clerk-react";
 import { productsDummyData, userDummyData } from "../../assets/assets";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+
 
 export const AppContext = createContext();
 
@@ -25,7 +28,21 @@ export const AppContextProvider = (props) => {
   };
 
   const fetchUserData = async () => {
-    setUserData(userDummyData);
+    try {
+      const token = await getToken();
+    const {data} = await axios.get("../api/user/data", {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    if (data.success) {
+      setUserData(data.user);
+      setCartItems(data.user.cartItems);
+    } else {
+      toast.error("Failed to fetch user data");
+    }
+    } catch (error) {
+      toast.error("User not found");
+    }
   };
 
   const addToCart = async (itemId) => {
